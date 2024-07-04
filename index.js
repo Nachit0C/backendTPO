@@ -25,5 +25,5 @@ myApp.use("/alumno", alumno);
 myApp.use('/inscripciones', inscripciones);
 
 myApp.listen( PORT, () =>{
-    console.log(`Server running at port: http://127.0.0.1:${PORT} .`);
+    console.log(`Server running at port: http://localhost:${PORT} .`);
 });
