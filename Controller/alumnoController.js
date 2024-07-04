@@ -130,7 +130,7 @@ const deleteAlumno = (req, res) =>{
                 } else {
                     const alumno_id = result[0].alumno_id;
                     const sql3 = `DELETE FROM inscripciones WHERE (alumno_id = ?) ;
-                    DELETE FROM urioplata.alumnos WHERE (alumno_id = ?);`
+                    DELETE FROM alumnos WHERE (alumno_id = ?);`
                     db.query(sql3, [alumno_id,alumno_id], (err, result) => {
                         if (err) throw err;
                         res.send(result);
