@@ -6,7 +6,7 @@ const persona = require('./Routes/persona');
 const alumno = require('./Routes/alumno');
 const inscripciones = require('./Routes/inscripciones');
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const myApp = myExpress();
 
