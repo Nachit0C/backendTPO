@@ -12,7 +12,7 @@ const coneccion = mysql.createConnection({
     //port: 3306,
     //database: 'urioplata',
     //database para alwaysdata:
-    //database: 'nachociccone_urioplata',
+    database: 'nachociccone_urioplata',
     multipleStatements: true
 });
 
