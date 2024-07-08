@@ -121,6 +121,7 @@ const deleteAlumno = (req, res) =>{
         if (result.length == 0) {
             return res.send('No existe persona con ese id.');
         } else {
+            //Chequeo si existe ese alumno asociado a la persona.
             const sql2 = `SELECT alumno_id FROM alumnos WHERE persona_id = ? ;`
             db.query(sql2, persona_id, (err, result) => {
                 if (err) throw err;
