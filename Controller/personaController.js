@@ -105,15 +105,25 @@ const deletePersona = (req, res) => {
             db.query(sql2, persona_id, (err, result) => {
                 if (err) throw err;
 
-                const alumno_id = result[0].alumno_id;
-                const sql1 = `DELETE FROM inscripciones WHERE (alumno_id = ?);
-                DELETE FROM alumnos WHERE (alumno_id = ?);
-                DELETE FROM personas WHERE (persona_id = ?);`;
-
-                db.query(sql1, [alumno_id,alumno_id,persona_id], (err, result) => {
-                    if (err) throw err;
-                    res.send(result);
-                });
+                if (result.length == 0) {
+                    //Si esa persona no es un alumno, elimino solo en la tabla personas.
+                    const sql3 = `DELETE FROM personas WHERE (persona_id = ?);`;
+                    db.query(sql3, [persona_id], (err, result) => {
+                        if (err) throw err;
+                        res.send(result);
+                    });
+                } else {
+                    //Si esa persona es un alumno, elimino primero inscripciones despues la tabla alumno y despues la tabla personas.
+                    const alumno_id = result[0].alumno_id;
+                    const sql3 = `DELETE FROM inscripciones WHERE (alumno_id = ?);
+                    DELETE FROM alumnos WHERE (alumno_id = ?);
+                    DELETE FROM personas WHERE (persona_id = ?);`;
+    
+                    db.query(sql3, [alumno_id,alumno_id,persona_id], (err, result) => {
+                        if (err) throw err;
+                        res.send(result);
+                    });
+                }
             });
         }
     });
