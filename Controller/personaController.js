@@ -69,7 +69,7 @@ const updatePersona = (req, res) => {
             } else {
                 //Verifico si ya existe una persona con el mismo dni o email
                 const sql2 = `SELECT * FROM personas WHERE (dni = ? OR email = ?) AND (persona_id != ?);`;
-                db.query(sql2,[dni,email], (err,result) => {
+                db.query(sql2,[dni,email, persona_id], (err,result) => {
                     if (err) throw err;
 
                     if (result.length > 0) {
