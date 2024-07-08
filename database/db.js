@@ -1,11 +1,22 @@
 const mysql = require('mysql2');
+require('dotenv').config();
 // Configurar con los datos de la base de datos
 const coneccion = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
+    //host local:
+    //host: '127.0.0.1',
+    //host para alwaysdata.
+    host: 'mysql-nachociccone.alwaysdata.net',
+    //user local:
+    //user: 'root',
+    //user para alwaysdata:
+    user: '367447_nachocicc',
+    //password para alwaysdata.
     password: 'nacho123',
     //port: 3306,
-    database: 'urioplata',
+    //database local:
+    //database: 'urioplata',
+    //database para alwaysdata:
+    database: 'nachociccone_urioplata',
     multipleStatements: true
 });
 
