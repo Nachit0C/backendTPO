@@ -11,9 +11,19 @@ const coneccion = mysql.createConnection({
     //user para alwaysdata:
     user: '367447_nachocicc',
     //password para alwaysdata.
+    //host: '127.0.0.1',
+    //host para alwaysdata.
+    host: 'mysql-nachociccone.alwaysdata.net',
+    //user: 'root',
+    //user para alwaysdata:
+    user: '367447_nachocicc',
+    //password es la misma.
     password: 'nacho123',
     //port: 3306,
     //database local:
+    //database: 'urioplata',
+    //database para alwaysdata:
+    database: 'nachociccone_urioplata',
     //database: 'urioplata',
     //database para alwaysdata:
     database: 'nachociccone_urioplata',
